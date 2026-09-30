@@ -11,7 +11,6 @@ The central runner connecting `monitor.py` and `brain.py`:
 
 import sys
 
-# Fix encoding for Windows terminals that default to cp1252
 if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     sys.stderr.reconfigure(encoding="utf-8", errors="replace")
@@ -20,7 +19,7 @@ import monitor
 import brain
 
 
-# ── Dashboard Display ────────────────────────────────────────────────────────
+#Dashboard Display
 
 def display_dashboard(metrics, top_processes, ai_report):
     """Print a clean formatted status summary to the terminal."""
@@ -65,7 +64,7 @@ def display_dashboard(metrics, top_processes, ai_report):
     print("=" * 60)
 
 
-# ── Interactive Prompt ───────────────────────────────────────────────────────
+# Interactive Prompt
 
 def interactive_prompt(metrics, top_processes):
     """
@@ -81,11 +80,10 @@ def interactive_prompt(metrics, top_processes):
     print("   * Type 'exit' or 'quit' to stop.")
     print("-" * 60)
 
-    # Start a Gemini chat session with system context
     brain.chat(metrics, top_processes)
 
 
-# ── Main Loop ────────────────────────────────────────────────────────────────
+# Main Loop 
 
 def main_loop():
     """Entry point: fetch data, analyze, alert, then enter interactive mode."""
@@ -94,7 +92,6 @@ def main_loop():
     metrics = monitor.get_system_metrics()
     top_processes = monitor.get_top_processes()
 
-    # Run AI analysis
     print("[*] Analyzing system state with Gemini...")
     ai_report = brain.analyze_system(metrics, top_processes)
 
