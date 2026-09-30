@@ -19,7 +19,6 @@ import warnings
 import logging
 
 # Suppress the AFC (automatic function calling) recommendation notice from google.genai
-# The AFC message uses logger.warning(), so we must silence the logger itself
 logging.getLogger("google_genai").setLevel(logging.ERROR)
 logging.getLogger("google_genai.models").setLevel(logging.ERROR)
 warnings.filterwarnings("ignore", message=".*Direct use of automatic function calling.*")
@@ -40,8 +39,6 @@ except ImportError:
     GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
     GEMINI_MODEL = "gemini-3.5-flash"
 
-# The API key comes only from config / environment (never hardcode it).
-# If it's missing or invalid, client stays None and the rule-based fallback is used.
 try:
     client = genai.Client(api_key=GEMINI_API_KEY) if GEMINI_API_KEY else None
 except Exception:
@@ -100,7 +97,7 @@ def fallback_analysis(metrics, top_processes, error_msg=""):
     if error_msg:
         reason += f" (Offline fallback: {error_msg})"
 
-    # Only suggest a target when RAM is the problem (processes are ranked by memory, not CPU)
+   
     action = "none"
     if ram > 85 and top_processes:
         top_proc = top_processes[0]
@@ -164,7 +161,6 @@ def chat(metrics, top_processes):
         if not cleaned_input:
             continue
 
-        # Check for kill / terminate command
         kill_match = re.match(r'^(?:kill|terminate)(?:\s+([a-zA-Z0-9_\-\.]+))?$', cleaned_input, re.IGNORECASE)
         if kill_match:
             target = kill_match.group(1)
