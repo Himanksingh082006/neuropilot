@@ -110,3 +110,6 @@ An LLM should never be trusted to decide what gets killed on its own, so:
 ## Tech Stack
 
 Python · psutil · Google Gemini (`google-genai`) · python-dotenv
+
+## AI Assistance Used In
+Built with AI assistance: I wrote monitor.py (system metrics and safe process termination) and part of brain.py. AI tools generated app.py, most of the remaining brain.py, and the initial project structure. I tested the whole project, reviewed the code, and suggested fixes and changes.
