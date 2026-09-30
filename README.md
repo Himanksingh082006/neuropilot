@@ -99,14 +99,6 @@ An LLM should never be trusted to decide what gets killed on its own, so:
 - Requires internet access and a Gemini API key for AI features (the rule-based fallback works offline).
 - Telemetry is sent to a third-party API; process names may be sensitive on some machines.
 
-## Roadmap
-
-- [ ] Rank processes by RSS / CPU instead of VMS
-- [ ] Cross-platform disk path and protected-process lists
-- [ ] Statistical anomaly detector (rolling z-scores or Isolation Forest) with measured false-positive rate
-- [ ] Desktop notifications for critical alerts
-- [ ] `--demo` mode to simulate an anomaly safely
-
 ## Tech Stack
 
 Python · psutil · Google Gemini (`google-genai`) · python-dotenv
