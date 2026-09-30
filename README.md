@@ -8,15 +8,15 @@
 
 **Dashboard** (Gemini was overloaded here, so the rule-based fallback took over):
 
-![Dashboard](docs/dashboard.png)
+![Dashboard](dashboard.png)
 
 **AI chat**: answers are based on the live telemetry (real processes, real RAM pressure):
 
-![AI chat](docs/ai-chat.png)
+![AI chat](ai-chat.png)
 
 **Offline fallback** (no API key configured): the dashboard still works and chat is disabled with a clear message:
 
-![Offline fallback](docs/offline-fallback.png)
+![Offline fallback](offline-fallback.png)
 
 ---
 
