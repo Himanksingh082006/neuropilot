@@ -1,0 +1,17 @@
+# ==============================================================================
+# NeuroPilot — Dependencies (Cloud AI & CLI Copilot)
+# ==============================================================================
+# Install with:
+#     pip install -r requirements.txt
+# ==============================================================================
+
+# 1. System Monitoring & Process Management
+psutil>=5.9.0
+
+# 2. Cloud AI Brain (Google Gemini Flash)
+# Official Google GenAI SDK for zero-shot anomaly detection & diagnosis
+# Free API key: https://aistudio.google.com/apikey
+google-genai>=1.0.0
+
+# 3. Environment Variables (.env support)
+python-dotenv>=1.0.0
